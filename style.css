@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #ffd9e2, #ffb6c1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    margin: 0;
+    overflow: hidden;
+    position: fixed;
+}
+body.mode-refus {
+    background: linear-gradient(145deg, #d4e0ed, #b8c9d4) !important;
+}
+.carte {
+    background: white;
+    border-radius: 40px;
+    padding: 20px;
+    max-width: 440px;
+    width: 100%;
+    max-height: 95vh;
+    box-shadow: 0 20px 40px rgba(180,60,80,0.25);
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+}
+h1 {
+    font-size: 1.9rem;
+    color: #b23b4c;
+    text-align: center;
+    margin-bottom: 6px;
+    text-shadow: 2px 2px 0 #ffe0e5;
+}
+body.mode-refus h1 {
+    color: #4a6572;
+    text-shadow: 2px 2px 0 #d4e0ed;
+}
+.sous-titre {
+    background: #ffe8ed;
+    padding: 6px 16px;
+    border-radius: 50px;
+    width: fit-content;
+    margin: 0 auto 16px;
+    font-weight: 600;
+    color: #8a2e42;
+    border: 2px solid white;
+    box-shadow: 0 3px 0 #c46b7a;
+    font-size: 0.85rem;
+}
+body.mode-refus .sous-titre {
+    background: #e6edf2;
+    color: #3a5463;
+    box-shadow: 0 3px 0 #7e9aa5;
+}
+.image-zone {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: #ffe3ec;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: 0 8px 0 #b3586b;
+    margin-bottom: 16px;
+}
+.image-zone img, .image-zone video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: #ffd9e2;
+    color: #a5384b;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 15px;
+}
+.boutons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 6px 0 14px;
+    flex-wrap: wrap;
+}
+.btn {
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: white;
+    border: 3px solid white;
+    box-shadow: 0 8px 0 rgba(0,0,0,0.2);
+    min-width: 140px;
+    touch-action: manipulation;
+}
+.btn:active {
+    transform: translateY(5px);
+    box-shadow: 0 3px 0 rgba(0,0,0,0.2);
+}
+.btn-oui {
+    background: #d44a5e;
+    box-shadow: 0 8px 0 #952e3f;
+}
+.btn-non {
+    background: #4a5c6c;
+    box-shadow: 0 8px 0 #2f3a47;
+}
+.btn-non-cache {
+    display: none !important;
+}
+.message-box {
+    background: #fff5f7;
+    border-radius: 24px;
+    padding: 14px;
+    margin: 8px 0 12px;
+    border: 2px solid white;
+    display: none;
+    box-shadow: inset 0 -3px 0 #d48a9c;
+}
+.message-texte {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #5a2a36;
+    text-align: center;
+}
+.chat {
+    background: white;
+    border-radius: 60px;
+    padding: 5px 5px 5px 16px;
+    display: flex;
+    align-items: center;
+    border: 2px solid #ff8a9c;
+    box-shadow: 0 5px 0 #b56270;
+}
+.chat-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px 0;
+    font-size: 0.95rem;
+}
+.chat-input:focus {
+    outline: none;
+}
+.chat-bulle {
+    background: #ffeaee;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    color: #ac4057;
+    border: 2px solid white;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    box-shadow: 0 3px 0 #d47a8c;
+}
+.btn-non-bouge {
+    position: fixed !important;
+    z-index: 9999;
+    transition: left 0.08s linear, top 0.08s linear;
+    box-shadow: 0 8px 0 #2f3a47, 0 0 0 3px white !important;
+}
+.coeur {
+    position: fixed;
+    bottom: 0;
+    font-size: 26px;
+    animation: monter 5s linear forwards;
+    pointer-events: none;
+    z-index: 9998;
+    filter: drop-shadow(0 0 6px rgba(255,80,100,0.6));
+}
+body.mode-refus .coeur {
+    filter: drop-shadow(0 0 6px rgba(70,130,180,0.6));
+}
+@keyframes monter {
+    0% { transform: translateY(0) scale(0.8); opacity: 0.9; }
+    100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+}
+@media (max-width: 380px) {
+    .btn { padding: 10px 18px; font-size: 1.4rem; min-width: 120px; }
+}
